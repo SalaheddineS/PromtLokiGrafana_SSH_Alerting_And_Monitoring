@@ -1,0 +1,14 @@
+global:
+  # fill with whatever your settings are
+  smtp_smarthost: '<smtp address>:<smtp port>'
+  smtp_from: '<alertmanager@example.com>'
+  smtp_auth_username: '<your email here>'
+  smtp_auth_password: '<your password here>'
+
+route:
+  receiver: default-receiver
+
+receivers:
+  - name: 'default-receiver'
+    email_configs:
+      - to: '<your email here>'

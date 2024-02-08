@@ -1,0 +1,11 @@
+groups:
+  - name: trigger
+    interval: 59s
+    rules:
+      - alert: ssh-login
+        expr: |
+          count_over_time({filename="/var/log/auth.log"} |= `Accepted publickey` [1m]) > 0
+        labels:
+            severity: warning
+        annotations:
+            summary: A new ssh login was accepted
